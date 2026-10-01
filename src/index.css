@@ -1,0 +1,41 @@
+@font-face {
+  font-family: "anta";
+  src: url(assets//fonts//anta/anta-regular.ttf);
+}
+
+@font-face {
+  font-family: "ubuntu-mono";
+  src: url(assets/fonts/ubuntu-mono/ubuntu-mono-Regular.ttf);
+}
+
+:root {
+  --default-font: "anta";
+  --featured-font: "ubuntu-mono";
+
+  --error-close-color: #640000;
+  --success-color: #006400;
+
+  --widht-layout-mobile: 320px;
+  --widht-layout-tablet: 768px;
+  --widht-layout-desktop: 1280px;
+
+  --title-size: 2.1rem;
+  --subtitle-size: 1.7rem;
+  --paragraph-size: 1.2rem;
+  --featured-text: 2.5rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  display: flex;
+  flex-direction: column;
+
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+}
