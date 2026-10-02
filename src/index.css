@@ -14,10 +14,11 @@
 
   --error-close-color: #640000;
   --success-color: #006400;
+  --featured-color: #af8615;
 
-  --widht-layout-mobile: 320px;
-  --widht-layout-tablet: 768px;
-  --widht-layout-desktop: 1280px;
+  --width-layout-mobile: 320px;
+  --width-layout-tablet: 768px;
+  --width-layout-desktop: 1280px;
 
   --title-size: 2.1rem;
   --subtitle-size: 1.7rem;
