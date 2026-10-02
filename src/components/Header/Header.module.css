@@ -56,6 +56,12 @@
     order: 1;
 }
 
+@media screen and (min-width: 768px) {
+    .open_menu, .close_menu {
+        font-size: 1.8rem;
+    }
+}
+
 @media screen and (min-width: 1280px) {
     .conteiner_menu {
         order: 1;

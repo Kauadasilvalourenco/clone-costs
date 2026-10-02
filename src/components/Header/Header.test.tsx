@@ -19,7 +19,7 @@ describe("Teste Unitário Header", () => {
         expect(menu).toBeDefined();
     });
 
-    it("deve simular clique do usuário no menu", async() => {
+    it("deve aparecer os links para páginas após clique no menu", async() => {
         const user = userEvent.setup();
 
         render(

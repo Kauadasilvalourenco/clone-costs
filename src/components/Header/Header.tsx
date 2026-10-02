@@ -33,6 +33,7 @@ export function Header() {
                         <MdMenu 
                             onClick={toogleMenu}
                             className={styleHeader.open_menu}
+                            data-testid="menu"
                         />
                     ) : (
                         <MdClose
@@ -44,7 +45,6 @@ export function Header() {
 
                 <ul
                     className={`${styleHeader.list_menu} ${menuActive === true ? styleHeader.active : ""}`}
-                    data-testid="menu"
                 >
                     <li>
                         <Link 
