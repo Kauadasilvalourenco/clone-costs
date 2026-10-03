@@ -27,3 +27,13 @@
     font-size: var(--title-size);
     color: var(--highlight-color);
 }
+
+@media screen and (min-width: 1280px) {
+
+    .icons:hover {
+        display: inline-flex;
+        cursor: pointer;
+        transform: scale(1.2);
+        color: var(--highlight-color);
+    }
+}

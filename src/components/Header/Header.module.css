@@ -8,6 +8,10 @@
 
     background-color: #222222;
     padding: 10px;
+
+    top: 0;
+    z-index: 9999;
+    position: sticky;
 }
 
 .conteiner_menu {
@@ -85,7 +89,7 @@
     .link_pages:hover {
         cursor: pointer;
         text-decoration: underline;
-        text-decoration-color: var(--featured-color);
+        text-decoration-color: var(--highlight-color);
         transform: scale(1.1);
     }
 
