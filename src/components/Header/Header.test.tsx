@@ -32,7 +32,7 @@ describe("Teste Unitário Header", () => {
 
         await user.click(menu);
 
-        expect(screen.getByText("Home")).toBeDefined();
-        expect(screen.getByText("Projetos")).toBeDefined();
+        expect(screen.getByText("Home")).toBeInTheDocument();
+        expect(screen.getByText("Projetos")).toBeInTheDocument();
     });
 });

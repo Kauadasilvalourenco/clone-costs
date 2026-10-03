@@ -18,6 +18,7 @@ export function Footer() {
                 <a 
                     href="https://wa.me/5562998446350" 
                     target="_blank"
+                     data-testid={"whatsapp-icon"}
                 >
                     <FaWhatsapp 
                         className={styleFooter.icons}
@@ -27,6 +28,7 @@ export function Footer() {
                 <a 
                     href="https://www.linkedin.com/in/kauã-da-silva-lourenço-1b7a58345?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
                     target="_blank"
+                    data-testid={"linkedin-icon"}
                 >
                     <FaLinkedinIn 
                         className={styleFooter.icons}
