@@ -6,6 +6,7 @@ import { Projects } from "./pages/_projects/Projects";
 // import pages
 
 import { Header } from "./components/Header/Header";
+import { Footer } from "./components/Footer/Footer";
 // import components
 
 export function App() {
@@ -32,9 +33,7 @@ export function App() {
 
       </main>
 
-      <footer>
-
-      </footer>
+      <Footer />
 
     </div>
   );
