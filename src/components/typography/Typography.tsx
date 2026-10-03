@@ -5,7 +5,7 @@ import styleTypography from "./Typography.module.css";
 type propsTypography = {
     tag: "h1" | "h2" | "p",
     children: ReactNode,
-    style?: string
+    style?: ReactNode
 }
 
 export function Typography({ tag, children, style }: propsTypography) {

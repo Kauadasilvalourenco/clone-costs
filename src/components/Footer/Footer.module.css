@@ -12,11 +12,18 @@
 
 .conteiner_icons {
     display: flex;
-    gap: 
-    15px;
+    margin-bottom: 10px;
 }
 
 .icons {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: #ffffff;
+    box-sizing: content-box;
+    padding: 10px;
+}
+
+.highlight {
+    font-family: var(--highlight-font);
+    font-size: var(--title-size);
+    color: var(--highlight-color);
 }

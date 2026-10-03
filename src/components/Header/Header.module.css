@@ -44,7 +44,7 @@
 
 .link_pages {
     display: inline-flex;
-    font-family: var(--featured-font);
+    font-family: var(--highlight-font);
     font-size: 1.2rem;
     font-weight: bold;
 

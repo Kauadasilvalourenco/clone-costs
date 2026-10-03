@@ -10,20 +10,20 @@
 
 :root {
   --default-font: "ubuntu-mono";
-  --featured-font: "anta";
+  --highlight-font: "anta";
 
   --error-close-color: #640000;
   --success-color: #006400;
-  --featured-color: #af8615;
+  --highlight-color: #af8615;
 
   --width-layout-mobile: 320px;
   --width-layout-tablet: 768px;
   --width-layout-desktop: 1280px;
 
-  --title-size: 2.1rem;
+  --title-size: 2rem;
   --subtitle-size: 1.7rem;
-  --paragraph-size: 1.2rem;
-  --featured-text: 2.5rem;
+  --paragraph-size: 1.3rem;
+  --highlight: 2.5rem;
 }
 
 * {

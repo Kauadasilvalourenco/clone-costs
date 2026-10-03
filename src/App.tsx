@@ -7,11 +7,16 @@ import { Projects } from "./pages/_projects/Projects";
 
 import { Header } from "./components/header/Header";
 import { Footer } from "./components/footer/Footer";
-// import components
+// import components;
+
+import styleApp from "./App.module.css";
+// import css;
 
 export function App() {
   return (
-    <div>
+    <div
+      className={styleApp.conteiner_app}
+    >
 
       <Header />
 

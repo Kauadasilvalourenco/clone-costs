@@ -1,3 +1,6 @@
+import { Typography } from "../typography/Typography";
+// import components;
+
 import { FaWhatsapp, FaLinkedinIn } from "react-icons/fa";
 // import icons;
 
@@ -31,6 +34,13 @@ export function Footer() {
                 </a>
                 
             </div>
+
+            <Typography
+                tag="h1"
+                style={styleFooter.highlight}
+            >
+                Costs
+            </Typography>
         </footer>
     );
 };
