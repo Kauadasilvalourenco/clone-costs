@@ -9,8 +9,8 @@
 }
 
 :root {
-  --default-font: "anta";
-  --featured-font: "ubuntu-mono";
+  --default-font: "ubuntu-mono";
+  --featured-font: "anta";
 
   --error-close-color: #640000;
   --success-color: #006400;

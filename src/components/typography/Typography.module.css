@@ -1,0 +1,16 @@
+.h1 {
+    font-family: var(--default-font);
+    font-size: 2rem;
+}
+
+.h2 {
+    font-family: var(--default-font);
+    font-size: 1.7rem;   
+    font-weight: lighter;
+}
+
+.p {
+    font-family: var(--default-font);
+    font-size: 1.3rem;
+    color: #778899;
+}
