@@ -16,10 +16,12 @@
 }
 
 .icons {
+    display: inline-flex;
     font-size: 1.8rem;
     color: #ffffff;
     box-sizing: content-box;
     padding: 10px;
+    animation: pulse 3s ease-in-out infinite;
 }
 
 .highlight {
@@ -29,11 +31,27 @@
 }
 
 @media screen and (min-width: 1280px) {
+    .icons {
+        animation: none;
+    }
 
     .icons:hover {
-        display: inline-flex;
         cursor: pointer;
         transform: scale(1.2);
         color: var(--highlight-color);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
     }
 }
