@@ -1,4 +1,5 @@
-import { Typography } from "../../components/typography/Typography"
+import { Typography } from "../../components/typography/Typography";
+import { Button } from "../../components/button/Button";
 // import components;
 
 import styleHome from "./Home.module.css";
@@ -25,6 +26,12 @@ export function Home() {
             >
                 Comece a gerenciar os seus projetos agora mesmo!
             </Typography>
+
+            <div>
+                <Button>
+                    Criar Projeto
+                </Button>
+            </div>
 
             <picture
                 className={styleHome.conteiner_img}
