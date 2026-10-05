@@ -12,6 +12,7 @@
     top: 0;
     z-index: 9999;
     position: sticky;
+    margin-bottom: 50px;
 }
 
 .conteiner_menu {

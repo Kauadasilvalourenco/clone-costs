@@ -4,7 +4,7 @@ import styleButton from "./Button.module.css";
 // import css;
 
 type propsButton = {
-    onClick: React.MouseEventHandler,
+    onClick: React.MouseEventHandler
     children: ReactNode,
     style?: string
 }

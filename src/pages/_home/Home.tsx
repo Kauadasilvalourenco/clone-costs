@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router";
+
 import { Typography } from "../../components/typography/Typography";
 import { Button } from "../../components/button/Button";
 // import components;
@@ -11,6 +13,8 @@ import backgroundImageHomeMobile from "../../assets/images/imagem_fundo_pq.png";
 // import imgs;
 
 export function Home() {
+    const navigate = useNavigate();
+
     return (
         <div
             className={styleHome.conteiner_home}
@@ -28,7 +32,9 @@ export function Home() {
             </Typography>
 
             <div>
-                <Button>
+                <Button
+                    onClick={() => navigate("/create-project")}
+                >
                     Criar Projeto
                 </Button>
             </div>
