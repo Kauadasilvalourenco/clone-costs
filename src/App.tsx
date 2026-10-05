@@ -20,7 +20,9 @@ export function App() {
 
       <Header />
 
-      <main>
+      <main
+        className={styleApp.hero}
+      >
 
         <Routes>
 
