@@ -4,12 +4,12 @@
 }
 
 @font-face {
-  font-family: "ubuntu-mono";
-  src: url(assets/fonts/ubuntu-mono/ubuntu-mono-Regular.ttf);
+  font-family: "nunito";
+  src: url(assets/fonts/nunito/nunito-variablefont_wght.ttf);
 }
 
 :root {
-  --default-font: "ubuntu-mono";
+  --default-font: "nunito";
   --highlight-font: "anta";
 
   --error-close-color: #640000;
