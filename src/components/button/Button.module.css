@@ -11,6 +11,11 @@
 }
 
 @media screen and (min-width: 1280px) {
+    .button {
+        min-width: 100px;
+        min-height: 50px;
+    }
+
     .button:hover {
         background-color: var(--highlight-color);
         color: #000000;
