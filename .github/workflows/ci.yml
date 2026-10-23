@@ -1,0 +1,84 @@
+name: Pipeline de CI e QA - Costs
+
+on:
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  # -------------------------------------------------------------------------
+  # JOB 1: Validação Rápida (Build + Vitest)
+  # -------------------------------------------------------------------------
+  build-and-unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Instalar Dependências do Projeto
+        run: npm ci
+
+      - name: Validar Build do Projeto
+        run: npm run build
+
+      - name: Executar Testes Unitários e Integração (Vitest)
+        run: npm run test:run
+
+  # -------------------------------------------------------------------------
+  # JOB 2: Validação Pesada (Playwright E2E Multi-tela)
+  # -------------------------------------------------------------------------
+  playwright-e2e:
+    needs: build-and-unit-tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Instalar Dependências do Projeto
+        run: npm ci
+
+      # OTIMIZAÇÃO: Evita baixar os browsers do zero a cada novo commit no PR
+      - name: Cache dos Binários do Playwright
+        uses: actions/cache@v4
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
+
+      # CORREÇÃO DA CONDICIONAL: Separado em passos nativos do GH Actions
+      - name: Instalar APENAS Dependências de Sistema (Cache Hit)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps
+
+      - name: Instalar Browsers e Dependências de Sistema (Cache Miss)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps
+
+      - name: Executar Testes End-to-End (Playwright)
+        run: npx playwright test
+
+      # -------------------------------------------------------------------------
+      # Gerenciamento de Artefatos e Notificação
+      # -------------------------------------------------------------------------
+      - name: Upload Playwright Report (Apenas em Falhas)
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+
+      - name: Conclusão da Automação de QA
+        if: success()
+        run: echo "✅ Validação automatizada concluída com sucesso!"
