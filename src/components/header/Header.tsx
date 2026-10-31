@@ -33,11 +33,13 @@ export function Header() {
                         <MdClose
                             className={styleHeader.close_menu}
                             onClick={toogleMenu}
+                            aria-label="fechar menu"
                         />
                     ) : (
                         <MdMenu
                             className={styleHeader.open_menu}
                             onClick={toogleMenu}
+                            aria-label="abrir menu"
                         />
                     )
                 }
