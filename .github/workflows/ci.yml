@@ -1,4 +1,4 @@
-name: Pipeline de CI e QA - Costson
+name: Pipeline de CI e QA - Costs
 
 on:
   pull_request:
