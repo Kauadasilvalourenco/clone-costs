@@ -1,3 +1,9 @@
+import { Routes, Route } from "react-router-dom";
+// import react-router;
+
+import { Home } from "./pages/_home/Home";
+// import pages;
+
 import { Header } from "./components/header/Header";
 import { Footer } from "./components/footer/Footer";
 // import components;
@@ -11,7 +17,16 @@ export function App() {
       className={styleApp.App}
     >
       <Header />
-      <h1>Pronto para começar</h1>
+      <main
+        className={styleApp.Hero}
+      >
+        <Routes>
+          <Route
+            path="/"
+            element={<Home />}
+          />
+        </Routes>
+      </main>
       <Footer />
     </div>
   );
