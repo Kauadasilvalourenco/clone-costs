@@ -7,9 +7,13 @@
     padding: 15px;
 
     min-width: 100%;
-    min-height: 70px;
+    min-height: 15%;
 
     margin-bottom: 50px;
+
+    position: sticky;
+    z-index: 999;
+    top: 0;
 }
 
 .navigation {
