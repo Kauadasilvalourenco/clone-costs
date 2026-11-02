@@ -1,0 +1,24 @@
+.h1 {
+    font-family: var(--default-font);
+    font-size: var(--title-size-mobile);
+}
+
+.p {
+    font-family: var(--default-font);
+    font-size: var(--paragraph-size-mobile);
+    font-weight: bold;
+    text-align: center;
+    color: #4b4b4b;
+}
+
+.span {
+    font-family: var(--highlight-font);
+    font-size: 1.8rem;
+    font-weight: bold;
+
+    background-color: var(--background-color);
+    color: var(--highlight-color);
+    
+    padding: 10px;
+    border-radius: 5px;
+}

@@ -1,3 +1,6 @@
+import { Typography } from "../../components/typography/Typography";
+// import components;
+
 import imgHomeMobile from "../../assets/images/imagem_fundo_pq.webp";
 import imgHomeTablet from "../../assets/images/imagem_fundo_md.webp";
 import imgHomeDesktop from "../../assets/images/imagem_fundo.webp";
@@ -11,8 +14,17 @@ export function Home() {
         <div
             className={styleHome.Home}
         >
-            <h1 className={styleHome.h1}>Bem-vindo ao Costs</h1>
-            <p className={styleHome.p}>Comece a gerenciar seus projetos agora mesmo!</p>
+            <Typography
+                tag="h1"
+            >
+                Bem-vindo ao <Typography tag="span">Costs</Typography>
+            </Typography>
+            
+            <Typography
+                tag="p"
+            >
+                Comece a gerenciar seus projetos agora mesmo!
+            </Typography>
 
             <div
                 className="conteiner_button"
@@ -20,9 +32,7 @@ export function Home() {
                 <button className={styleHome.button}>Criar Projeto</button>
             </div>
             
-            <picture
-                className={styleHome.conteiner_img}
-            >
+            <picture>
                 <source media="(min-width: 1280px)" srcSet={imgHomeDesktop} />
                 <source media="(min-width: 768px)" srcSet={imgHomeTablet} />
                 <img src={imgHomeMobile} alt="imagem fundo costs" />
