@@ -30,6 +30,11 @@
   --layout-desktop: 1280px;
 }
 
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
 * {
   margin: 0;
   padding: 0;
