@@ -14,7 +14,7 @@
 
 .h1 {
     font-size: var(--title-size-mobile);
-    margin: -30px 0px 30px 0px;
+    margin-bottom: 50px;
 }
 
 .p {
