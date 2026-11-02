@@ -7,3 +7,19 @@
     min-width: 100%;
     min-height: 100%;
 }
+
+.Hero {
+    max-width: var(--layout-mobile);
+}
+
+@media screen and (min-width: 768px) {
+    .Hero {
+        max-width: var(--layout-tablet);
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .Hero {
+        max-width: var(--layout-desktop);
+    }
+}

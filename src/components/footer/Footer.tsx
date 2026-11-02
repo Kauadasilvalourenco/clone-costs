@@ -1,3 +1,6 @@
+import { Typography } from "../typography/Typography";
+// import css;
+
 import { FaWhatsapp, FaLinkedinIn } from "react-icons/fa";
 // import icons;
 
@@ -30,7 +33,12 @@ export function Footer() {
                 </a>
             </div>
 
-            <span className={styleFooter.span} >Costs</span>
+            <Typography
+                tag="span"
+                style={styleFooter.span}
+            >
+                Costs
+            </Typography>
         </footer>
     )
 }
