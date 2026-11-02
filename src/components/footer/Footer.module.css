@@ -5,7 +5,7 @@
     flex-direction: column;
 
     min-width: 100%;
-    min-height: 70px;
+    min-height: 15%;
 
     background-color: var(--background-color);
 
@@ -19,15 +19,6 @@
     box-sizing: content-box;
     margin-top: 10px;
     animation: pulse 4s infinite ease-in-out;
-}
-
-.span {
-    margin-bottom: 10px;
-    font-family: var(--highlight-font);
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--highlight-color);
-    border-radius: 10px;
 }
 
 @keyframes pulse {
