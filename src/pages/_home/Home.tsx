@@ -1,3 +1,6 @@
+import { useNavigate } from "react-router-dom";
+// import hooks;
+
 import { Typography } from "../../components/typography/Typography";
 import { Button } from "../../components/button/Button";
 // import components;
@@ -11,6 +14,8 @@ import styleHome from "./Home.module.css";
 // import css;
 
 export function Home() {
+    const navigate = useNavigate();
+
     return (
         <div
             className={styleHome.Home}
@@ -31,6 +36,7 @@ export function Home() {
                 className="conteiner_button"
             >
                 <Button
+                    onClick={() => navigate("/create-project")}
                 >
                     Criar Projeto
                 </Button>
@@ -42,5 +48,5 @@ export function Home() {
                 <img src={imgHomeMobile} alt="imagem fundo costs" />
             </picture>
         </div>
-    )
-}
+    );
+};
