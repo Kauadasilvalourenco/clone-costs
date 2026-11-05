@@ -1,0 +1,26 @@
+.button {
+    font-family: var(--highlight-font);
+    font-size: 1rem;
+
+    min-width: 100px;
+    min-height: 40px;
+
+    border-radius: 8px;
+    padding: 10px;
+    color: #ffffff;
+    background-color: var(--background-color);
+    
+    box-shadow: 3px 3px 5px #00000098;
+}
+
+@media screen and (min-width: 1280px) {
+
+    .button {
+        font-size: 1.1rem;
+    }
+
+    .button:hover {
+        color: var(--highlight-color);
+        cursor: pointer;
+    }
+}
