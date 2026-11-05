@@ -1,4 +1,5 @@
 import { Typography } from "../../components/typography/Typography";
+import { Button } from "../../components/button/Button";
 // import components;
 
 import imgHomeMobile from "../../assets/images/imagem_fundo_pq.webp";
@@ -29,7 +30,10 @@ export function Home() {
             <div
                 className="conteiner_button"
             >
-                <button className={styleHome.button}>Criar Projeto</button>
+                <Button
+                >
+                    Criar Projeto
+                </Button>
             </div>
             
             <picture>
