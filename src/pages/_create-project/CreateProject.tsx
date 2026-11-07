@@ -30,15 +30,15 @@ export function CreateProject() {
             <form
                 className={styleCreateProject.form}
             >
-                <div>
+                <div className={styleCreateProject.conteiner_fields}>
                     <label htmlFor="name-project" className={styleCreateProject.label}>Nome Projeto:</label>
                     <input type="text" name="" id="name-project" placeholder="exemplo nome" className={styleCreateProject.input}/>
                 </div>
-                <div>
+                <div className={styleCreateProject.conteiner_fields}>
                     <label htmlFor="budget-project" className={styleCreateProject.label}>Orçamento Projeto:</label>
                     <input type="number" name="" id="budget-project" placeholder="5000" className={styleCreateProject.input}/>
                 </div>
-                <div>
+                <div className={styleCreateProject.conteiner_fields}>
                     <label htmlFor="categories-project" className={styleCreateProject.label}>Categoria Projeto:</label>
                     <select name="" id="categories-project" className={styleCreateProject.select}>
                         <option value="" hidden>

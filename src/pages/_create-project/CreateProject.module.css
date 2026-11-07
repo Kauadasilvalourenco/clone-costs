@@ -18,6 +18,11 @@
     gap: 20px;
 }
 
+.conteiner_fields {
+    display: flex;
+    flex-direction: column;
+}
+
 .label {
     font-family: var(--default-font);
     font-size: 1.1rem;
