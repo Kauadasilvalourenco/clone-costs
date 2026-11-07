@@ -1,4 +1,5 @@
 import { Typography } from "../../components/typography/Typography";
+import { Label } from "../../components/label/Label";
 import { Button } from "../../components/button/Button";
 // import components;
 
@@ -31,15 +32,27 @@ export function CreateProject() {
                 className={styleCreateProject.form}
             >
                 <div className={styleCreateProject.conteiner_fields}>
-                    <label htmlFor="name-project" className={styleCreateProject.label}>Nome Projeto:</label>
+                    <Label
+                        htmlFor="name-project"
+                    >
+                        Nome Projeto:
+                    </Label>
                     <input type="text" name="" id="name-project" placeholder="exemplo nome" className={styleCreateProject.input}/>
                 </div>
                 <div className={styleCreateProject.conteiner_fields}>
-                    <label htmlFor="budget-project" className={styleCreateProject.label}>Orçamento Projeto:</label>
+                    <Label
+                        htmlFor="budget-project"
+                    >
+                        Orçamento Projeto:
+                    </Label>
                     <input type="number" name="" id="budget-project" placeholder="5000" className={styleCreateProject.input}/>
                 </div>
                 <div className={styleCreateProject.conteiner_fields}>
-                    <label htmlFor="categories-project" className={styleCreateProject.label}>Categoria Projeto:</label>
+                    <Label
+                        htmlFor="categories-project"
+                    >
+                        Categoria Projeto:
+                    </Label>
                     <select name="" id="categories-project" className={styleCreateProject.select}>
                         <option value="" hidden>
                             Escolha uma opção
