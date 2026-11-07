@@ -1,3 +1,5 @@
+import type { MouseEvent } from "react";
+
 import { Typography } from "../../components/typography/Typography";
 import { Label } from "../../components/label/Label";
 import { Button } from "../../components/button/Button";
@@ -7,7 +9,7 @@ import styleCreateProject from "./CreateProject.module.css";
 // import css;
 
 export function CreateProject() {
-    function fake(e) {
+    function fake(e: MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
         console.log("evento chamado!");
     }; // irá sair!
