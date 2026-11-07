@@ -1,0 +1,5 @@
+.label {
+    font-family: var(--default-font);
+    font-size: 1.1rem;
+    font-weight: bold;
+}

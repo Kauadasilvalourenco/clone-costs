@@ -6,7 +6,7 @@
     background-color: var(--background-color);
     padding: 15px;
 
-    min-width: 100%;
+    width: 100%;
     min-height: 15%;
 
     margin-bottom: 50px;
