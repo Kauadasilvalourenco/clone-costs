@@ -1,7 +1,9 @@
 import type { MouseEvent } from "react";
+// import types;
 
 import { Typography } from "../../components/typography/Typography";
 import { Label } from "../../components/label/Label";
+import { Input } from "../../components/input/Input";
 import { Button } from "../../components/button/Button";
 // import components;
 
@@ -39,7 +41,12 @@ export function CreateProject() {
                     >
                         Nome Projeto:
                     </Label>
-                    <input type="text" name="" id="name-project" placeholder="exemplo nome" className={styleCreateProject.input}/>
+                    <Input 
+                        type="text"
+                        name="name-project"
+                        id="name-project"
+                        placeholder="Exemplo: Criar Frontend"
+                    />
                 </div>
                 <div className={styleCreateProject.conteiner_fields}>
                     <Label
@@ -47,7 +54,12 @@ export function CreateProject() {
                     >
                         Orçamento Projeto:
                     </Label>
-                    <input type="number" name="" id="budget-project" placeholder="5000" className={styleCreateProject.input}/>
+                    <Input 
+                        type="number"
+                        name="budget-project"
+                        id="budget-project"
+                        placeholder="Exemplo: R$5000,00"
+                    />
                 </div>
                 <div className={styleCreateProject.conteiner_fields}>
                     <Label
