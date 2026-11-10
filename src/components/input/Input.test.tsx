@@ -24,7 +24,7 @@ describe("teste unitário componente Input", () => {
     });
 
     it("deve renderizar corretamente dado digitado pelo usuário no input", async() => {
-        const user = userEvent.setup();
+        const user = userEvent.setup({ delay: null });
 
         render (
             <div>
