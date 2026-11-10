@@ -4,6 +4,7 @@ import type { MouseEvent } from "react";
 import { Typography } from "../../components/typography/Typography";
 import { Label } from "../../components/label/Label";
 import { Input } from "../../components/input/Input";
+import { Select } from "../../components/select/Select";
 import { Button } from "../../components/button/Button";
 // import components;
 
@@ -11,10 +12,17 @@ import styleCreateProject from "./CreateProject.module.css";
 // import css;
 
 export function CreateProject() {
-    function fake(e: MouseEvent<HTMLButtonElement>) {
+    function fakeSubmit(e: MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
         console.log("evento chamado!");
     }; // irá sair!
+
+    const fakeCategories = [
+        { id: 1, name: "Infraestrutura" },
+        { id: 2, name: "Desenvolvimento" },
+        { id: 3, name: "Planejamento" },
+        { id: 4, name: "Design" },
+    ];
 
     return (
         <div
@@ -67,27 +75,14 @@ export function CreateProject() {
                     >
                         Categoria Projeto:
                     </Label>
-                    <select name="" id="categories-project" className={styleCreateProject.select}>
-                        <option value="" hidden>
-                            Escolha uma opção
-                        </option>
-
-                        <option value="Infraestrutura" className={styleCreateProject.options}>
-                            Infraestrutura
-                        </option>
-                        <option value="Desenvolvimento" className={styleCreateProject.options}>
-                            Desenvolvimento
-                        </option>
-                        <option value="Planejamento" className={styleCreateProject.options}>
-                            Planejamento
-                        </option>
-                        <option value="Design" className={styleCreateProject.options}>
-                            Design
-                        </option>
-                    </select>
+                    <Select 
+                        name="categories-project"
+                        id="categories-project"
+                        options={fakeCategories}
+                    />
                 </div>
                 <Button
-                    onClick={fake}
+                    onClick={fakeSubmit}
                 >
                     Criar Projeto
                 </Button>
