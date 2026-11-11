@@ -1,6 +1,9 @@
 import { useId } from "react";
 // import hooks;
 
+import { Button } from "../button/Button";
+// import components;
+
 import { FormSchema } from "../../schemas/FormSchema";
 // import FormSchema;
 
@@ -14,10 +17,11 @@ import styleForm from "./Form.module.css";
 type FormProps = {
     fieldsConfig: Array<configSchema>,
     options: Array<configOptions>,
+    btnText: string,
     style?: string
 };
 
-export function Form({ fieldsConfig, options, style }: FormProps) {
+export function Form({ fieldsConfig, options, btnText, style }: FormProps) {
     const ID = useId();
 
     const fieldList = FormSchema({
@@ -51,6 +55,15 @@ export function Form({ fieldsConfig, options, style }: FormProps) {
                     );
                 })
             }
+
+            <div>
+                <Button
+                    type="submit"
+                >
+                    { btnText }
+                </Button>
+            </div>
+
         </form>
     );
 };
