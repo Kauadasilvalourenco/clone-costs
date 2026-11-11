@@ -1,7 +1,7 @@
 import styleSelect from "./Select.module.css";
 // import css;
 
-export type options = {
+export type configOptions = {
     id: number,
     name: string
 };
@@ -9,7 +9,7 @@ export type options = {
 type SelectProps = {
     name: string,
     id: string,
-    options: Array<options>
+    options: Array<configOptions>
     style?: string
 };
 

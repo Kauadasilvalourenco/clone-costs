@@ -1,5 +1,5 @@
 import type { ElementType } from "react";
-import type { options } from "../components/select/Select";
+import type { configOptions } from "../components/select/Select";
 // import types;
 
 export type configSchema = {
@@ -16,7 +16,7 @@ export type configSchema = {
 type FormSchemaParameters = {
     fieldsConfig: Array<configSchema>,
     id: string,
-    options: Array<options>
+    options: Array<configOptions>
 };
 
 export function FormSchema({ fieldsConfig =[], id, options }: FormSchemaParameters) {

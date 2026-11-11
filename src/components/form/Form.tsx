@@ -5,7 +5,7 @@ import { FormSchema } from "../../schemas/FormSchema";
 // import FormSchema;
 
 import type { configSchema } from "../../schemas/FormSchema";
-import type { options } from "../select/Select";
+import type { configOptions } from "../select/Select";
 // import types;
 
 import styleForm from "./Form.module.css";
@@ -13,7 +13,7 @@ import styleForm from "./Form.module.css";
 
 type FormProps = {
     fieldsConfig: Array<configSchema>,
-    options: Array<options>,
+    options: Array<configOptions>,
     style?: string
 };
 
