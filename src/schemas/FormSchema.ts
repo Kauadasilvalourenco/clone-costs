@@ -1,7 +1,8 @@
 import type { ElementType } from "react";
+import type { options } from "../components/select/Select";
 // import types;
 
-type configSchema = {
+export type configSchema = {
     label: {
         component: React.ElementType,
         props: React.ComponentProps<ElementType>
@@ -14,10 +15,11 @@ type configSchema = {
 
 type FormSchemaParameters = {
     fieldsConfig: Array<configSchema>,
-    id: string
+    id: string,
+    options: Array<options>
 };
 
-export function FormSchema({ fieldsConfig =[], id }: FormSchemaParameters) {
+export function FormSchema({ fieldsConfig =[], id, options }: FormSchemaParameters) {
     return fieldsConfig.map((obj) => {
         const ID = `${id}-${obj.field.props.name}`;
 
@@ -33,7 +35,8 @@ export function FormSchema({ fieldsConfig =[], id }: FormSchemaParameters) {
                 component: obj.field.component,
                 props: {
                     ...obj.field.props,
-                    id: ID
+                    id: ID,
+                    options: options
                 }
             }
         };

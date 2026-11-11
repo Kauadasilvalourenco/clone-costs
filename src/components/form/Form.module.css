@@ -1,0 +1,13 @@
+.Form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+}
+
+.conteiner_fields {
+    display: flex;
+    flex-direction: column;
+}
