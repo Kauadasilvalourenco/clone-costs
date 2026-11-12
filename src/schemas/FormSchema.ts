@@ -1,3 +1,6 @@
+import z from "zod/v3";
+// import zod
+
 import type { ElementType } from "react";
 import type { configOptions } from "../components/select/Select";
 // import types;
@@ -5,6 +8,7 @@ import type { configOptions } from "../components/select/Select";
 import { Label } from "../components/label/Label";
 import { Input } from "../components/input/Input";
 import { Select } from "../components/select/Select";
+// import components;
 
 export type configSchema = {
     label: {
@@ -95,3 +99,18 @@ export const CreateProjectSchema = [
         }
     }
 ];
+
+export const CreateProjectSchemaValidation = z.object({
+    "name-project": z
+    .string()
+    .min(3, "O  campo deve conter no mínimo 3 caracteres!")
+    .regex(/^(?!\d+$).+$/, "O campo deve conter letras!"),
+
+    "budget-project": z
+    .coerce.number()
+    .min(3, "O campo deve conter no mínimo 3 digitos!"),
+
+    "categories-project": z
+    .string()
+    .min(1, "Deve ser escolhida uma categoria!")
+});
