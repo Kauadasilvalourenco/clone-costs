@@ -8,6 +8,11 @@ describe("teste unitário função FormSchema", () => {
     it("deve estruturar um formulário dinâmico com componentes anatômicos e suas props", () => {
         const ID = "r0LLh";
 
+        const mockOptions = [
+            { id: 1, name: "Infra" },
+            { id: 2, name: "Dev" }
+        ];
+
         const mockForm = [
             {
                 label: {
@@ -44,7 +49,8 @@ describe("teste unitário função FormSchema", () => {
         const expectedID = `${ID}-${"test-input"}`;
         const mockSchema = FormSchema({
             fieldsConfig: mockForm,
-            id: ID
+            id: ID,
+            options: mockOptions
         });
 
         expect(mockSchema).toHaveLength(2);
