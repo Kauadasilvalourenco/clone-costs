@@ -1,18 +1,20 @@
-import type { MouseEvent } from "react";
-
 import { Typography } from "../../components/typography/Typography";
-import { Label } from "../../components/label/Label";
-import { Button } from "../../components/button/Button";
+import { Form } from "../../components/form/Form";
 // import components;
+
+import { CreateProjectSchema } from "../../schemas/FormSchema";
+// import schemas;
 
 import styleCreateProject from "./CreateProject.module.css";
 // import css;
 
 export function CreateProject() {
-    function fake(e: MouseEvent<HTMLButtonElement>) {
-        e.preventDefault();
-        console.log("evento chamado!");
-    }; // irá sair!
+    const fakeCategories = [
+        { id: 1, name: "Infraestrutura" },
+        { id: 2, name: "Desenvolvimento" },
+        { id: 3, name: "Planejamento" },
+        { id: 4, name: "Design" },
+    ];
 
     return (
         <div
@@ -30,56 +32,11 @@ export function CreateProject() {
                 Crie seu projeto para depois adicionar serviços!
             </Typography>
 
-            <form
-                className={styleCreateProject.form}
-            >
-                <div className={styleCreateProject.conteiner_fields}>
-                    <Label
-                        htmlFor="name-project"
-                    >
-                        Nome Projeto:
-                    </Label>
-                    <input type="text" name="" id="name-project" placeholder="exemplo nome" className={styleCreateProject.input}/>
-                </div>
-                <div className={styleCreateProject.conteiner_fields}>
-                    <Label
-                        htmlFor="budget-project"
-                    >
-                        Orçamento Projeto:
-                    </Label>
-                    <input type="number" name="" id="budget-project" placeholder="5000" className={styleCreateProject.input}/>
-                </div>
-                <div className={styleCreateProject.conteiner_fields}>
-                    <Label
-                        htmlFor="categories-project"
-                    >
-                        Categoria Projeto:
-                    </Label>
-                    <select name="" id="categories-project" className={styleCreateProject.select}>
-                        <option value="" hidden>
-                            Escolha uma opção
-                        </option>
-
-                        <option value="Infraestrutura" className={styleCreateProject.options}>
-                            Infraestrutura
-                        </option>
-                        <option value="Desenvolvimento" className={styleCreateProject.options}>
-                            Desenvolvimento
-                        </option>
-                        <option value="Planejamento" className={styleCreateProject.options}>
-                            Planejamento
-                        </option>
-                        <option value="Design" className={styleCreateProject.options}>
-                            Design
-                        </option>
-                    </select>
-                </div>
-                <Button
-                    onClick={fake}
-                >
-                    Criar Projeto
-                </Button>
-            </form>
+            <Form 
+                fieldsConfig={CreateProjectSchema}
+                options={fakeCategories}
+                btnText="Criar Projeto"
+            />
         </div>
     );
 };

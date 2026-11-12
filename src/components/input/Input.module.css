@@ -1,0 +1,16 @@
+.input {
+    min-width: 300px;
+    min-height: 40px;
+
+    font-family: var(--highlight-font);
+    font-size: 1rem;
+    font-weight: bold;
+
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+}
+
+.input::placeholder {
+    font-style: italic;
+}
