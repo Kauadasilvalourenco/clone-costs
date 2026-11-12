@@ -1,3 +1,6 @@
+import { forwardRef } from "react";
+// import ref;
+
 import styleSelect from "./Select.module.css";
 // import css;
 
@@ -13,13 +16,15 @@ type SelectProps = {
     style?: string
 };
 
-export function Select({ name, id, options, style }: SelectProps) {
+export const Select = forwardRef<HTMLSelectElement, SelectProps>(({ name, id, options, style, ...rest }, ref) => {
     return (
         <div>
             <select 
                 name={name} 
                 id={id}
                 className={`${styleSelect.select} ${style}`}
+                { ...rest }
+                ref={ref}
             >
 
             <option 
@@ -44,4 +49,6 @@ export function Select({ name, id, options, style }: SelectProps) {
             </select>
         </div>
     );
-};
+});
+
+Select.displayName = "Select";

@@ -1,3 +1,6 @@
+import { forwardRef } from "react";
+// import ref;
+
 import styleInput from "./Input.module.css";
 // import css;
 
@@ -9,7 +12,7 @@ type InputProps = {
     style?: string
 };
 
-export function Input({ type, name, id, placeholder, style }: InputProps) {
+export const Input = forwardRef<HTMLInputElement, InputProps>(({ type, name, id, placeholder,style, ...rest }, ref) => {
     return (
         <input 
             type={type} 
@@ -17,6 +20,10 @@ export function Input({ type, name, id, placeholder, style }: InputProps) {
             id={id}
             placeholder={placeholder}
             className={`${styleInput.input} ${style}`}
+            { ...rest }
+            ref={ref}
         />
     );
-};
+});
+
+Input.displayName = "Input";
