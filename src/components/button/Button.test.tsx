@@ -9,6 +9,7 @@ describe("teste unitário componente Button", () => {
 
         render (
             <Button
+                type="click"
                 onClick={mockClick}
             >
                 Test Button
@@ -27,6 +28,7 @@ describe("teste unitário componente Button", () => {
 
         render (
             <Button
+                type="click"
                 onClick={mockClick}
             >
                 Test Click Button
