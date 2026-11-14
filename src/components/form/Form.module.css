@@ -11,3 +11,11 @@
     display: flex;
     flex-direction: column;
 }
+
+.message_error {
+    font-family: var(--highlight-font);
+    font-size: 1rem;
+    font-weight: bold;
+    
+    color: var(--error-close-color);
+}
