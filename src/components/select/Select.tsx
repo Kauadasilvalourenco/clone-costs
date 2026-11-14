@@ -28,7 +28,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(({ name, id, op
             >
 
             <option 
-                value="placeholder-select" 
+                value="" 
                 hidden
             >
                 Escolha uma opção

@@ -10,7 +10,7 @@
     border-radius: 5px;
 }
 
-.select:has(option[value="placeholder-select"]:checked) {
+.select:has(option[value=""]:checked) {
     font-style: italic;
     color: #757575;
     text-align: center;
