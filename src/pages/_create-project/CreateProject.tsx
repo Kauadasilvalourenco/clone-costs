@@ -5,16 +5,13 @@ import { Form } from "../../components/form/Form";
 import { CreateProjectSchema } from "../../schemas/FormSchema";
 // import schemas;
 
+import data from "../../../db.json";
+// import data;
+
 import styleCreateProject from "./CreateProject.module.css";
 // import css;
 
 export function CreateProject() {
-    const fakeCategories = [
-        { id: 1, name: "Infraestrutura" },
-        { id: 2, name: "Desenvolvimento" },
-        { id: 3, name: "Planejamento" },
-        { id: 4, name: "Design" },
-    ];
 
     return (
         <div
@@ -34,7 +31,7 @@ export function CreateProject() {
 
             <Form 
                 fieldsConfig={CreateProjectSchema}
-                options={fakeCategories}
+                options={data.categories}
                 btnText="Criar Projeto"
             />
         </div>

@@ -14,7 +14,7 @@ import { CreateProjectSchemaValidation } from "../../schemas/FormSchema";
 // import FormSchema;
 
 import type { configSchema } from "../../schemas/FormSchema";
-import type { configOptions } from "../select/Select";
+import type { ConfigCategories } from "../../services/Api";
 import type { Path } from "react-hook-form";
 // import types;
 
@@ -23,7 +23,7 @@ import styleForm from "./Form.module.css";
 
 type FormProps = {
     fieldsConfig: Array<configSchema>,
-    options: Array<configOptions>,
+    options: Array<ConfigCategories>,
     btnText: string,
     style?: string
 };

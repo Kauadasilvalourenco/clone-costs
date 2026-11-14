@@ -4,15 +4,13 @@ import { forwardRef } from "react";
 import styleSelect from "./Select.module.css";
 // import css;
 
-export type configOptions = {
-    id: number,
-    name: string
-};
+import type { ConfigCategories } from "../../services/Api";
+// import types;
 
 type SelectProps = {
     name: string,
     id: string,
-    options: Array<configOptions>
+    options: Array<ConfigCategories>
     style?: string
 };
 
