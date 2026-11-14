@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "server": "json-server --watch db.json --port 5000",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
