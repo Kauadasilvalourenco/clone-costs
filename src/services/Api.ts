@@ -8,6 +8,13 @@ export type ConfigCategories = {
     name: string
 };
 
+type configProjects = {
+    id: number,
+    name_project: string,
+    budget_project: number,
+    category_project: string
+}
+
 const baseURL = "http://localhost:5000";
 
 const request = async <T>({ endpoint, options = {}}: ConfigRequest): Promise<T> => {
@@ -53,6 +60,18 @@ export const getErrorApi = (error: unknown) => {
     return messageError;
 };
 
+// GET
 export const getCategories = () => {
     return request<ConfigCategories[]>({ endpoint: "/categories" });
+};
+
+// POST
+export const createProjects = (data: Omit<configProjects, "id">) => {
+    return request<configProjects[]>({
+        endpoint: "/projects",
+        options: {
+            method: "POST",
+            body: JSON.stringify(data)
+        }
+    });
 };
