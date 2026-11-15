@@ -1,5 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 // import hooks;
 
 import { Typography } from "../../components/typography/Typography";
@@ -9,7 +10,7 @@ import { Form } from "../../components/form/Form";
 import { CreateProjectSchema } from "../../schemas/FormSchema";
 // import schemas;
 
-import { getCategories, getErrorApi } from "../../services/Api";
+import { getCategories, createProjects, getErrorApi } from "../../services/Api";
 // import api;
 
 import styleCreateProject from "./CreateProject.module.css";
@@ -17,6 +18,7 @@ import styleCreateProject from "./CreateProject.module.css";
 
 export function CreateProject() {
     const queryClient = useQueryClient();
+    const navigate = useNavigate();
 
     const {
         data: categories = [],
@@ -25,7 +27,7 @@ export function CreateProject() {
         error
     } = useQuery({
         queryKey: ["categories"],
-        queryFn: () => getCategories(),
+        queryFn: getCategories,
         retry: 3,
         retryDelay: 1500,
         staleTime: 60 * 5 * 1000,
@@ -43,13 +45,14 @@ export function CreateProject() {
         mutate
     } = useMutation({
         mutationKey: ["posts"],
-        //mutationFn: ,
+        mutationFn: createProjects,
         
         onSuccess: () => {
             queryClient.invalidateQueries({
                 queryKey: ["projects"]
             });
             console.log("Projeto criado com sucesso!");
+            navigate("/projects");
         },
 
         onError: (error) => {

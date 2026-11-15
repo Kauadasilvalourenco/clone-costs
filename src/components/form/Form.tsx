@@ -28,7 +28,7 @@ type FormProps = {
     fieldsConfig: Array<configSchema>,
     options: Array<ConfigCategories>,
     btnText: string,
-    onSubmit: () => void,
+    onSubmit: (data: formValues) => void,
     isLoading: boolean,
     style?: string
 };
@@ -78,7 +78,7 @@ export function Form({ fieldsConfig, options, btnText, onSubmit, isLoading, styl
                                 />
 
                                 {
-                                    isLoading === true && fieldName === "categories-project" && (
+                                    isLoading === true && fieldName === "category_project" && (
                                         <img 
                                             src={imgLoading} 
                                             alt="Carregando Categorias"
