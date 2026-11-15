@@ -2,7 +2,7 @@ import z from "zod/v3";
 // import zod
 
 import type { ElementType } from "react";
-import type { configOptions } from "../components/select/Select";
+import type { ConfigCategories } from "../services/Api";
 // import types;
 
 import { Label } from "../components/label/Label";
@@ -24,7 +24,7 @@ export type configSchema = {
 type FormSchemaParameters = {
     fieldsConfig: Array<configSchema>,
     id: string,
-    options: Array<configOptions>
+    options: Array<ConfigCategories>
 };
 
 export function FormSchema({ fieldsConfig =[], id, options }: FormSchemaParameters) {

@@ -1,3 +1,7 @@
+import { useQuery } from "@tanstack/react-query";
+import { useEffect } from "react";
+// import hooks;
+
 import { Typography } from "../../components/typography/Typography";
 import { Form } from "../../components/form/Form";
 // import components;
@@ -5,13 +9,33 @@ import { Form } from "../../components/form/Form";
 import { CreateProjectSchema } from "../../schemas/FormSchema";
 // import schemas;
 
-import data from "../../../db.json";
-// import data;
+import { getCategories, getErrorApi } from "../../services/Api";
+// import api;
 
 import styleCreateProject from "./CreateProject.module.css";
 // import css;
 
 export function CreateProject() {
+    const {
+        data: categories = [],
+        isLoading,
+        isError,
+        error
+    } = useQuery({
+        queryKey: ["categories"],
+        queryFn: () => getCategories(),
+        retry: 3,
+        retryDelay: 1500,
+        staleTime: 60 * 5 * 1000,
+    });
+
+    useEffect(() => {
+        if (isError === true) {
+            console.error(`Erro na requisição das categories: ${error.stack}`);
+            getErrorApi(error.cause)
+        }
+    }, [isError, error]);
+
 
     return (
         <div
@@ -31,8 +55,9 @@ export function CreateProject() {
 
             <Form 
                 fieldsConfig={CreateProjectSchema}
-                options={data.categories}
+                options={categories}
                 btnText="Criar Projeto"
+                isLoading={isLoading}
             />
         </div>
     );

@@ -18,6 +18,9 @@ import type { ConfigCategories } from "../../services/Api";
 import type { Path } from "react-hook-form";
 // import types;
 
+import imgLoading from "../../assets/images/loading.svg";
+// import imgs;
+
 import styleForm from "./Form.module.css";
 // import css;
 
@@ -25,12 +28,13 @@ type FormProps = {
     fieldsConfig: Array<configSchema>,
     options: Array<ConfigCategories>,
     btnText: string,
+    isLoading: boolean,
     style?: string
 };
 
 type formValues = z.infer<typeof CreateProjectSchemaValidation>
 
-export function Form({ fieldsConfig, options, btnText, style }: FormProps) {
+export function Form({ fieldsConfig, options, btnText, isLoading, style }: FormProps) {
     const ID = useId();
 
     const fieldList = FormSchema({
@@ -62,10 +66,26 @@ export function Form({ fieldsConfig, options, btnText, style }: FormProps) {
                                 { ...obj.label.props }
                             />
 
-                            <TagField 
-                                { ...obj.field.props }
-                                { ...register(fieldName) }
-                            />
+                            <div
+                                className={styleForm.conteiner_categories}
+                            >
+
+                                <TagField
+                                    { ...obj.field.props }
+                                    { ...register(fieldName) }
+                                />
+
+                                {
+                                    isLoading === true && fieldName === "categories-project" && (
+                                        <img 
+                                            src={imgLoading} 
+                                            alt="Carregando Categorias"
+                                            className={styleForm.loading}
+                                        />
+                                    )
+                                }
+
+                            </div>
                             
                             {
                                 errors[fieldName] && (
