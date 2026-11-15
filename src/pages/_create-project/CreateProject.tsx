@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useEffect } from "react";
 // import hooks;
 
@@ -16,6 +16,8 @@ import styleCreateProject from "./CreateProject.module.css";
 // import css;
 
 export function CreateProject() {
+    const queryClient = useQueryClient();
+
     const {
         data: categories = [],
         isLoading,
@@ -31,11 +33,30 @@ export function CreateProject() {
 
     useEffect(() => {
         if (isError === true) {
-            console.error(`Erro na requisição das categories: ${error.stack}`);
+            console.error(`Erro na requisição das categories:`, error.stack);
             getErrorApi(error.cause)
         }
     }, [isError, error]);
 
+
+    const {
+        mutate
+    } = useMutation({
+        mutationKey: ["posts"],
+        //mutationFn: ,
+        
+        onSuccess: () => {
+            queryClient.invalidateQueries({
+                queryKey: ["projects"]
+            });
+            console.log("Projeto criado com sucesso!");
+        },
+
+        onError: (error) => {
+            console.error(`Erro ao criar Projeto`, error.stack);
+            getErrorApi(error.cause);
+        }
+    });
 
     return (
         <div
@@ -57,6 +78,7 @@ export function CreateProject() {
                 fieldsConfig={CreateProjectSchema}
                 options={categories}
                 btnText="Criar Projeto"
+                onSubmit={mutate}
                 isLoading={isLoading}
             />
         </div>

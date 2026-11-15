@@ -28,13 +28,14 @@ type FormProps = {
     fieldsConfig: Array<configSchema>,
     options: Array<ConfigCategories>,
     btnText: string,
+    onSubmit: () => void,
     isLoading: boolean,
     style?: string
 };
 
 type formValues = z.infer<typeof CreateProjectSchemaValidation>
 
-export function Form({ fieldsConfig, options, btnText, isLoading, style }: FormProps) {
+export function Form({ fieldsConfig, options, btnText, onSubmit, isLoading, style }: FormProps) {
     const ID = useId();
 
     const fieldList = FormSchema({
@@ -43,12 +44,13 @@ export function Form({ fieldsConfig, options, btnText, isLoading, style }: FormP
         options: options
     });
 
-    const { register, formState: {errors},  } = useForm<formValues>({
+    const { register, handleSubmit, formState: {errors},  } = useForm<formValues>({
         resolver: zodResolver(CreateProjectSchemaValidation)
     });
 
     return (
         <form
+            onSubmit={handleSubmit(onSubmit)}
             className={`${styleForm.Form} ${style}`}
         >
             {
