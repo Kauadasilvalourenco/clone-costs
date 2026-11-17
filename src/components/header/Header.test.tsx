@@ -22,7 +22,7 @@ describe("teste unitário componente Header", () => {
     });
 
     it("deve renderizar os menus de paginação após clique no usuário", async() => {
-        const user = userEvent.setup();
+        const user = userEvent.setup({ delay: null });
 
         render (
             <MemoryRouter>
