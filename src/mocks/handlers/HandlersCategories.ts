@@ -1,6 +1,10 @@
 import { http, HttpResponse } from "msw";
 import { mockCategories } from "../fixtures/FixtureCategories";
 
-http.get("http://localhost:5000/categories", () => {
-    return HttpResponse.json(mockCategories);
-});
+export const handlersCategories = [
+    http.get("http://localhost:5000/categories", () => {
+        const mockResponse = mockCategories;
+
+        return HttpResponse.json(mockResponse);
+    })
+];
