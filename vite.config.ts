@@ -12,7 +12,7 @@ export default defineConfig({
     globals: true,
     pool: 'threads',
     isolate: true,
-    environment: "happy-dom",
+    environment: "jsdom",
     setupFiles: "./src/mocks/setupTest.ts",
 
     exclude: [
