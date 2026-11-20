@@ -11,3 +11,23 @@
     display: flex;
     flex-direction: column;
 }
+
+.conteiner_categories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.loading {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.message_error {
+    font-family: var(--highlight-font);
+    font-size: 1rem;
+    font-weight: bold;
+    
+    color: var(--error-close-color);
+}

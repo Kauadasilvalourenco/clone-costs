@@ -10,6 +10,8 @@ export default defineConfig({
   ],
   test: {
     globals: true,
+    pool: 'threads',
+    isolate: true,
     environment: "jsdom",
     setupFiles: "./src/mocks/setupTest.ts",
 

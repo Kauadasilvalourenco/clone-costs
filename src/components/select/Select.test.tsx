@@ -23,7 +23,7 @@ describe("teste unitário componente Select", () => {
         expect(elementSelect).toBeInTheDocument();
         expect(elementSelect).toHaveAttribute("name", "Select");
         expect(elementSelect).toHaveAttribute("id", "test-select");
-        expect(elementSelect).toHaveValue("placeholder-select");
+        expect(elementSelect).toHaveValue("");
         expect(elementSelect).toHaveTextContent("Escolha uma opção");
     });
 

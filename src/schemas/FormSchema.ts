@@ -2,7 +2,7 @@ import z from "zod/v3";
 // import zod
 
 import type { ElementType } from "react";
-import type { configOptions } from "../components/select/Select";
+import type { ConfigCategories } from "../services/Api";
 // import types;
 
 import { Label } from "../components/label/Label";
@@ -24,7 +24,7 @@ export type configSchema = {
 type FormSchemaParameters = {
     fieldsConfig: Array<configSchema>,
     id: string,
-    options: Array<configOptions>
+    options: Array<ConfigCategories>
 };
 
 export function FormSchema({ fieldsConfig =[], id, options }: FormSchemaParameters) {
@@ -63,7 +63,7 @@ export const CreateProjectSchema = [
             component: Input,
             props: {
                 type: "text",
-                name: "name-project",
+                name: "name_project",
                 placeholder: "Ex: Integração sistema de pagamento"
             }
         }
@@ -79,7 +79,7 @@ export const CreateProjectSchema = [
             component: Input,
             props: {
                 type: "number",
-                name: "budget-project",
+                name: "budget_project",
                 placeholder: "Ex: R$5000,00"
             }
         }
@@ -94,23 +94,23 @@ export const CreateProjectSchema = [
         field: {
             component: Select,
             props: {
-                name: "categories-project"
+                name: "category_project"
             }
         }
     }
 ];
 
 export const CreateProjectSchemaValidation = z.object({
-    "name-project": z
+    "name_project": z
     .string()
     .min(3, "O  campo deve conter no mínimo 3 caracteres!")
     .regex(/^(?!\d+$).+$/, "O campo deve conter letras!"),
 
-    "budget-project": z
+    "budget_project": z
     .coerce.number()
     .min(3, "O campo deve conter no mínimo 3 digitos!"),
 
-    "categories-project": z
+    "category_project": z
     .string()
     .min(1, "Deve ser escolhida uma categoria!")
 });
