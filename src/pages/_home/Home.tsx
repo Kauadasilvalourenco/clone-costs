@@ -36,6 +36,7 @@ export function Home() {
                 className="conteiner_button"
             >
                 <Button
+                    type="click"
                     onClick={() => navigate("/create-project")}
                 >
                     Criar Projeto

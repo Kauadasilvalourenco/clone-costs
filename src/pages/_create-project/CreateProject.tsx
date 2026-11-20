@@ -1,18 +1,65 @@
-import type { MouseEvent } from "react";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+// import hooks;
 
 import { Typography } from "../../components/typography/Typography";
-import { Label } from "../../components/label/Label";
-import { Button } from "../../components/button/Button";
+import { Form } from "../../components/form/Form";
 // import components;
+
+import { CreateProjectSchema } from "../../schemas/FormSchema";
+// import schemas;
+
+import { getCategories, createProjects, getErrorApi } from "../../services/Api";
+// import api;
 
 import styleCreateProject from "./CreateProject.module.css";
 // import css;
 
 export function CreateProject() {
-    function fake(e: MouseEvent<HTMLButtonElement>) {
-        e.preventDefault();
-        console.log("evento chamado!");
-    }; // irá sair!
+    const queryClient = useQueryClient();
+    const navigate = useNavigate();
+
+    const {
+        data: categories = [],
+        isLoading,
+        isError,
+        error
+    } = useQuery({
+        queryKey: ["categories"],
+        queryFn: getCategories,
+        retry: 3,
+        retryDelay: 1500,
+        staleTime: 60 * 5 * 1000,
+    });
+
+    useEffect(() => {
+        if (isError === true) {
+            console.error(`Erro na requisição das categories:`, error.stack);
+            getErrorApi(error.cause)
+        }
+    }, [isError, error]);
+
+
+    const {
+        mutate
+    } = useMutation({
+        mutationKey: ["posts"],
+        mutationFn: createProjects,
+        
+        onSuccess: () => {
+            queryClient.invalidateQueries({
+                queryKey: ["projects"]
+            });
+            console.log("Projeto criado com sucesso!");
+            navigate("/projects");
+        },
+
+        onError: (error) => {
+            console.error(`Erro ao criar Projeto`, error.stack);
+            getErrorApi(error.cause);
+        }
+    });
 
     return (
         <div
@@ -30,56 +77,13 @@ export function CreateProject() {
                 Crie seu projeto para depois adicionar serviços!
             </Typography>
 
-            <form
-                className={styleCreateProject.form}
-            >
-                <div className={styleCreateProject.conteiner_fields}>
-                    <Label
-                        htmlFor="name-project"
-                    >
-                        Nome Projeto:
-                    </Label>
-                    <input type="text" name="" id="name-project" placeholder="exemplo nome" className={styleCreateProject.input}/>
-                </div>
-                <div className={styleCreateProject.conteiner_fields}>
-                    <Label
-                        htmlFor="budget-project"
-                    >
-                        Orçamento Projeto:
-                    </Label>
-                    <input type="number" name="" id="budget-project" placeholder="5000" className={styleCreateProject.input}/>
-                </div>
-                <div className={styleCreateProject.conteiner_fields}>
-                    <Label
-                        htmlFor="categories-project"
-                    >
-                        Categoria Projeto:
-                    </Label>
-                    <select name="" id="categories-project" className={styleCreateProject.select}>
-                        <option value="" hidden>
-                            Escolha uma opção
-                        </option>
-
-                        <option value="Infraestrutura" className={styleCreateProject.options}>
-                            Infraestrutura
-                        </option>
-                        <option value="Desenvolvimento" className={styleCreateProject.options}>
-                            Desenvolvimento
-                        </option>
-                        <option value="Planejamento" className={styleCreateProject.options}>
-                            Planejamento
-                        </option>
-                        <option value="Design" className={styleCreateProject.options}>
-                            Design
-                        </option>
-                    </select>
-                </div>
-                <Button
-                    onClick={fake}
-                >
-                    Criar Projeto
-                </Button>
-            </form>
+            <Form 
+                fieldsConfig={CreateProjectSchema}
+                options={categories}
+                btnText="Criar Projeto"
+                onSubmit={mutate}
+                isLoading={isLoading}
+            />
         </div>
     );
 };
