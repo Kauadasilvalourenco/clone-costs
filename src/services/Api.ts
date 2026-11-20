@@ -8,8 +8,8 @@ export type ConfigCategories = {
     name: string
 };
 
-type configProjects = {
-    id: number,
+export type ConfigProjects = {
+    id: number | string,
     name_project: string,
     budget_project: number,
     category_project: string
@@ -41,7 +41,7 @@ export const getErrorApi = (error: unknown) => {
 
     switch (error) {
         case 400:
-            messageError = "Dados incompletos!";
+            messageError = "Dados incompletos/Incorretos!";
             break;
         case 404:
             messageError = "Recurso não encontrado no Servidor!";
@@ -66,8 +66,8 @@ export const getCategories = () => {
 };
 
 // POST
-export const createProjects = (data: Omit<configProjects, "id">) => {
-    return request<configProjects[]>({
+export const createProjects = (data: Omit<ConfigProjects, "id">) => {
+    return request<ConfigProjects[]>({
         endpoint: "/projects",
         options: {
             method: "POST",
